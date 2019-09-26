@@ -1,10 +1,9 @@
-package JavaSchool;
+package ru.Sber.edu;
 
 import java.io.*;
 import java.lang.reflect.Field;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
-import java.util.ArrayList;
 
 public class Main {
 
@@ -13,7 +12,7 @@ public class Main {
         /*
         1. Реализовать клонирование объекта через сериализацию. Сравнить два объекта на equals и '=='
         */
-        Mobile Samsung = new Mobile("Galaxy","S10", "black", 112410L);
+        Mobile Samsung = new Mobile("Galaxy", "S10", "black", 112410L);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream ous = new ObjectOutputStream(baos);
         ous.writeObject(Samsung);
@@ -22,29 +21,25 @@ public class Main {
         ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
         ObjectInputStream ois = new ObjectInputStream(bais);
 
-        Mobile CloneSamsung = (Mobile)ois.readObject();
+        Mobile CloneSamsung = (Mobile) ois.readObject();
         CloneSamsung.setColor("white");
         System.out.println(Samsung);
         System.out.println(CloneSamsung);
         System.out.println("equals: " + Samsung.equals(CloneSamsung));
-        System.out.println("==: "+ (Samsung == CloneSamsung));
+        System.out.println("==: " + (Samsung == CloneSamsung));
 
          /*
         2. Создать 2 исключения (checked и unchecked).
         */
         try {
             Samsung.CheckedException();
-        }
-        catch (Exception ex)
-        {
+        } catch (Exception ex) {
             System.out.println("Checked: " + ex.getMessage());
         }
 
         try {
             Samsung.getMobile(2);
-        }
-        catch (RuntimeException rx)
-        {
+        } catch (RuntimeException rx) {
             System.out.println("Unchecked: " + rx.getMessage());
         }
 
@@ -61,7 +56,7 @@ public class Main {
 
             Type[] fieldArgTypes = pType.getActualTypeArguments();
 
-            for (Type fieldArgType : fieldArgTypes){
+            for (Type fieldArgType : fieldArgTypes) {
                 Class fieldClass = (Class) fieldArgType;
                 System.out.println("type: " + fieldClass);
             }

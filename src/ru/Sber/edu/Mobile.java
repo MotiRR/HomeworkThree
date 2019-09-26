@@ -1,4 +1,4 @@
-package JavaSchool;
+package ru.Sber.edu;
 
 import java.io.Serializable;
 import java.util.ArrayList;
