@@ -17,7 +17,7 @@ javac -sourcepath ./src/ -d bin src/ru/sber/edu/Main.java
 ```
 # Запуск
 ```
-java -classpath ./bin src/ru/sber/edu/Main
+java -classpath ./bin ru/sber/edu/Main
 ```
 # Результат
 Результат отобразится на консоли
