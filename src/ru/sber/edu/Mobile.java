@@ -1,4 +1,4 @@
-package ru.Sber.edu;
+package ru.sber.edu;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -10,11 +10,11 @@ public class Mobile implements Serializable {
     private long id;
     private ArrayList<Mobile> mobiles;
 
-    public Mobile(String Name, String Model, String Color, long Id) {
-        this.name = Name;
-        this.model = Model;
-        this.color = Color;
-        this.id = Id;
+    public Mobile(String name, String model, String color, long id) {
+        this.name = name;
+        this.model = model;
+        this.color = color;
+        this.id = id;
         mobiles = new ArrayList<>();
     }
 
@@ -34,11 +34,6 @@ public class Mobile implements Serializable {
     public Mobile getMobile(int index)
     {
         return mobiles.get(index);
-    }
-
-    public void CheckedException() throws Exception
-    {
-        throw new Exception("true");
     }
 
     @Override

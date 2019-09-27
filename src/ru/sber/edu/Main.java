@@ -1,4 +1,7 @@
-package ru.Sber.edu;
+package ru.sber.edu;
+
+import ru.sber.edu.exeptions.EmptyMyExeption;
+import ru.sber.edu.exeptions.EmptyMyRuntimeException;
 
 import java.io.*;
 import java.lang.reflect.Field;
@@ -12,34 +15,34 @@ public class Main {
         /*
         1. Реализовать клонирование объекта через сериализацию. Сравнить два объекта на equals и '=='
         */
-        Mobile Samsung = new Mobile("Galaxy", "S10", "black", 112410L);
+        Mobile samsung = new Mobile("Galaxy", "S10", "black", 112410L);
         ByteArrayOutputStream baos = new ByteArrayOutputStream();
         ObjectOutputStream ous = new ObjectOutputStream(baos);
-        ous.writeObject(Samsung);
+        ous.writeObject(samsung);
         ous.close();
 
         ByteArrayInputStream bais = new ByteArrayInputStream(baos.toByteArray());
         ObjectInputStream ois = new ObjectInputStream(bais);
 
-        Mobile CloneSamsung = (Mobile) ois.readObject();
-        CloneSamsung.setColor("white");
-        System.out.println(Samsung);
-        System.out.println(CloneSamsung);
-        System.out.println("equals: " + Samsung.equals(CloneSamsung));
-        System.out.println("==: " + (Samsung == CloneSamsung));
+        Mobile cloneSamsung = (Mobile) ois.readObject();
+        cloneSamsung.setColor("white");
+        System.out.println(samsung);
+        System.out.println(cloneSamsung);
+        System.out.println("equals: " + samsung.equals(cloneSamsung));
+        System.out.println("==: " + (samsung == cloneSamsung));
 
          /*
         2. Создать 2 исключения (checked и unchecked).
         */
         try {
-            Samsung.CheckedException();
-        } catch (Exception ex) {
+            throw new EmptyMyExeption("EmptyMyExeption");
+        } catch (EmptyMyExeption ex) {
             System.out.println("Checked: " + ex.getMessage());
         }
 
         try {
-            Samsung.getMobile(2);
-        } catch (RuntimeException rx) {
+            throw new EmptyMyRuntimeException("EmptyMyRuntimeException");
+        } catch (EmptyMyRuntimeException rx) {
             System.out.println("Unchecked: " + rx.getMessage());
         }
 
