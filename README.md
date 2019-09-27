@@ -13,11 +13,11 @@
 Открываем командную строку в загруженной папке и в командной строке пишем
 ```
 mkdir bin
-javac -sourcepath ./src/ -d bin src/ru/Sber/edu/Main.java
+javac -sourcepath ./src/ -d bin src/ru/sber/edu/Main.java
 ```
 # Запуск
 ```
-java -classpath ./bin src/ru/Sber/edu/Main
+java -classpath ./bin src/ru/sber/edu/Main
 ```
 # Результат
 Результат отобразится на консоли
